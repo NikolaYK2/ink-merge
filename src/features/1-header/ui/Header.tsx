@@ -18,11 +18,12 @@ export const Header = () => {
 
 const styles = StyleSheet.create({
   container: {
-    backgroundColor:COLORS.dark300,
+    backgroundColor:COLORS.darkOpacity,
+    zIndex:1
   },
   text: {
     fontSize: FONT.fsBig,
-    color: COLORS.error,
+    color: COLORS.light100,
     fontWeight:FONT.fwB,
   }
 })

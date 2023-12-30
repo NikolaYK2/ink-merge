@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 import {FlatList, Text, View} from "react-native";
-import {Form} from "@/common/components/Form";
+import {Form} from "@/features/2-main/ui/form/ui/Form";
 import {MaterialCommunityIcons} from "@expo/vector-icons";
 
 
@@ -18,12 +18,12 @@ export const Main = () => {
     {id: '4', text: 'Stain milliners', image: null},
   ])
 
-  console.log(list)
-
 
   return (
     <View>
+
       <Form setList={setList} list={list}/>
+
       <FlatList data={list}
                 keyExtractor={item => item.id}
                 renderItem={({item}) => (
@@ -35,8 +35,9 @@ export const Main = () => {
                       {item.text}
                     </Text>
                   </View>
-                )}
-      />
+                )}/>
     </View>
-  );
+      );
 };
+
+
