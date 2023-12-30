@@ -11,7 +11,7 @@ export const Header = () => {
 
   return (
     <View style={[styles.container, {paddingTop:insets.top}]}>
-      <Text style={styles.text}>List</Text>
+      <Text style={styles.text}>Header</Text>
     </View>
   );
 };
