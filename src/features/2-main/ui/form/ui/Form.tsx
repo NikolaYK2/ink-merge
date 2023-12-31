@@ -4,7 +4,7 @@ import {ListType} from "@/features/2-main/ui/Main";
 import {COLORS, SAID} from "@/assets/styles/styles";
 import {FONT} from "@/assets/typography/typography";
 import {Btn} from "@/common/components/Btn";
-import {MaterialIcons} from "@expo/vector-icons";
+import {MaterialCommunityIcons, MaterialIcons} from "@expo/vector-icons";
 import {Icons, IconsType} from "@/features/2-main/ui/form/ui/Icons";
 
 
@@ -27,6 +27,9 @@ export const Form = ({setList, list}: Props) => {
     }
   }
 
+  const deleteAllTaskHandle=()=>{
+    setList([])
+  }
 
   return (
 
@@ -46,9 +49,15 @@ export const Form = ({setList, list}: Props) => {
           }}>{selectedIcon ? '🖼️' + ' x' : ''}</Text>
         </View>
 
-        <Btn title={'ADD'} onPress={addTaskHandle}>
-          <MaterialIcons name="post-add" size={24} color={COLORS.light100}/>
-        </Btn>
+        <View style={{flexDirection:'row', justifyContent:'space-between'}}>
+          <Btn title={'ADD'} onPress={addTaskHandle} className={styles.btnAdd}>
+            <MaterialIcons name="post-add" size={FONT.fsBig} color={COLORS.light100}/>
+          </Btn>
+
+          <Btn title={'ALL'} className={styles.btnDel} onLongPress={deleteAllTaskHandle}>
+            <MaterialCommunityIcons name="delete-forever-outline" size={FONT.fsBig} color={COLORS.light100}/>
+          </Btn>
+        </View>
 
       </View>
 
@@ -93,7 +102,7 @@ const styles = StyleSheet.create({
     marginBottom: 10
   },
   input: {
-    fontSize: FONT.fsMedium,
+    fontSize: FONT.fsLittle,
     backgroundColor: COLORS.dark100,
     borderRadius: SAID.borderLight,
     paddingVertical: 5,
@@ -104,7 +113,13 @@ const styles = StyleSheet.create({
     position: 'absolute',
     right: 5,
     top: '15%',
-    fontSize: FONT.fsBig,
+    fontSize: FONT.fsMedium,
     color: COLORS.error
+  },
+  btnAdd:{
+    width:'100%'
+  },
+  btnDel:{
+    backgroundColor:COLORS.error
   },
 })

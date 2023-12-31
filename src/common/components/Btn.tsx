@@ -47,10 +47,12 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     backgroundColor: COLORS.medium,
     borderRadius: SAID.borderLight,
+    paddingHorizontal:20,
+    paddingVertical:15
   },
   text: {
     color: COLORS.light100,
-    marginHorizontal: 15,
-    paddingVertical: 15
+    // marginHorizontal: 15,
+    // paddingVertical: 15
   }
 })

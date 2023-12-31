@@ -1,11 +1,14 @@
 
 type TypeF={
+  fsLittle: number,
   fsMedium: number,
-  fsBig: number,
+  fsBig:number,
   fwB: 'bold'
 }
 export const FONT:TypeF = {
-  fsMedium: 16,
-  fsBig: 18,
-  fwB: 'bold'
+  fsLittle: 16,
+  fsMedium: 18,
+  fsBig: 30,
+  
+  fwB: 'bold',
 }

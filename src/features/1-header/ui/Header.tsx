@@ -23,7 +23,7 @@ const styles = StyleSheet.create({
     zIndex:1
   },
   text: {
-    fontSize: FONT.fsBig,
+    fontSize: FONT.fsMedium,
     color: COLORS.light100,
     fontWeight:FONT.fwB,
   }

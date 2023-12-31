@@ -4,6 +4,7 @@ import {MaterialCommunityIcons} from "@expo/vector-icons";
 import {ListType} from "@/features/2-main/ui/Main";
 import {COLORS, SAID} from "@/assets/styles/styles";
 import {Btn} from "@/common/components/Btn";
+import {FONT} from "@/assets/typography/typography";
 
 
 type Props = {
@@ -14,7 +15,7 @@ type Props = {
 export const List = ({item,setList,list}: Props) => {
 
   const deleteTaskHandle = () => {
-  setList(list.filter(list=>list.id !== item.id))
+  setList(list.filter(list=> list.id !== item.id))
   }
 
   return (
@@ -26,7 +27,7 @@ export const List = ({item,setList,list}: Props) => {
         {item.text}
       </Text>
       <Btn onLongPress={deleteTaskHandle} className={styles.btn}>
-        <MaterialCommunityIcons name="delete-forever-outline" size={24} color={COLORS.error}/>
+        <MaterialCommunityIcons name="delete-forever-outline" size={FONT.fsBig} color={COLORS.error}/>
       </Btn>
     </View>
   );
@@ -38,16 +39,18 @@ const styles = StyleSheet.create({
     flexWrap: 'wrap',
     alignItems: 'center',
     backgroundColor: COLORS.darkOpacity,
-    padding: 10,
-    margin: 10,
+    paddingLeft:10,
+    marginHorizontal:10,
+    marginVertical:5,
     borderRadius: SAID.borderLight,
   },
   text: {
     flex:1,
     marginLeft: 10,
-    color: COLORS.light100
+    color: COLORS.light100,
+    fontSize:FONT.fsMedium
   },
   btn:{
-    backgroundColor:'transparent'
+    backgroundColor:'transparent',
   }
 })

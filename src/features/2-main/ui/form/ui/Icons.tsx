@@ -4,8 +4,9 @@ import React from "react";
 import {COLORS} from "@/assets/styles/styles";
 import {useAnimation} from "@/features/2-main/ui/form/lib/useAnimations";
 import {Btn} from "@/common/components/Btn";
+import {FONT} from "@/assets/typography/typography";
 
-const icons = ['food', 'car', 'home', 'silverware-clean'] as const;
+const icons = ['food', 'car', 'home', 'format-clear'] as const;
 
 export type IconsType = typeof icons[number] | undefined;
 
@@ -28,7 +29,7 @@ export const Icons = ({setSelectedIcon,}: Props) => {
               animate(index)
             }}
           >
-            <MaterialCommunityIcons name={iconName} size={24} color={COLORS.light100}/>
+            <MaterialCommunityIcons name={iconName} size={FONT.fsBig} color={COLORS.light100}/>
             <Animated.View style={[styles.anim, {
               transform: [
                 {translateY: animations[index].transformY},
@@ -36,7 +37,7 @@ export const Icons = ({setSelectedIcon,}: Props) => {
               ],
               opacity: animations[index].opacity
             }]}>
-              <MaterialCommunityIcons name={iconName} size={24} color={COLORS.light100}/>
+              <MaterialCommunityIcons name={iconName} size={FONT.fsBig} color={COLORS.light100}/>
             </Animated.View>
 
           </Btn>
