@@ -26,7 +26,6 @@ const styles = StyleSheet.create({
     borderRadius:SAID.borderLight,
   },
   text: {
-    flex: 1/5,
     color: COLORS.light100,
     marginHorizontal:15,
     paddingVertical:15

@@ -11,7 +11,7 @@ export const Header = () => {
 
   return (
     <View style={[styles.container, {paddingTop:insets.top}]}>
-      <Text style={styles.text}>Header</Text>
+      <Text style={styles.text}>Todolist</Text>
     </View>
   );
 };
@@ -19,6 +19,7 @@ export const Header = () => {
 const styles = StyleSheet.create({
   container: {
     backgroundColor:COLORS.darkOpacity,
+    paddingHorizontal:5,
     zIndex:1
   },
   text: {

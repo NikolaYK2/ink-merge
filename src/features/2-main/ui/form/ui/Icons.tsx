@@ -5,15 +5,14 @@ import {COLORS} from "@/assets/styles/styles";
 import {useAnimation} from "@/features/2-main/ui/form/lib/useAnimations";
 
 type Props = {
-  onIconSelected: (name: string) => void
+  setSelectedIcon: (name: IconsType) => void
 }
-export type IconsType = {
-  name: 'food' | 'car' | 'home'
-}
-export const Icons = ({onIconSelected,}: Props) => {
-  const icons: IconsType[] = [{name: 'food'}, {name: 'car'}, {name: 'home'}];
+export type IconsType = 'food' | 'car' | 'home' | undefined
 
-  const {animations,animate} = useAnimation(icons);
+export const Icons = ({setSelectedIcon,}: Props) => {
+  const icons: IconsType[] = ['food', 'car', 'home'];
+
+  const {animations, animate} = useAnimation(icons);
 
   return (
     <View style={{flexDirection: 'row', justifyContent: 'center'}}>
@@ -21,10 +20,10 @@ export const Icons = ({onIconSelected,}: Props) => {
         const isFirstChild = index === 0 ? styles.borderL : index === icons.length - 1 ? styles.borderR : styles.icons;
         return (
           <TouchableOpacity style={[styles.icons, isFirstChild]} key={index} onPress={() => {
-            onIconSelected(iconName.name);
+            setSelectedIcon(iconName);
             animate(index);
           }}>
-            <MaterialCommunityIcons name={iconName.name} size={24} color={COLORS.light100}/>
+            <MaterialCommunityIcons name={iconName} size={24} color={COLORS.light100}/>
 
             <Animated.View style={[styles.anim, {
               transform: [
@@ -33,7 +32,7 @@ export const Icons = ({onIconSelected,}: Props) => {
               ],
               opacity: animations[index].opacity
             }]}>
-              <MaterialCommunityIcons name={iconName.name} size={24} color={COLORS.light100}/>
+              <MaterialCommunityIcons name={iconName} size={24} color={COLORS.light100}/>
             </Animated.View>
 
           </TouchableOpacity>
@@ -65,10 +64,12 @@ const styles = StyleSheet.create({
   },
   anim: {
     position: 'absolute',
-    bottom: '35%',
-    width: '100%',
-    height: '100%',
-    // backgroundColor: COLORS.lightOpacity,
+    alignItems: 'center',
+    justifyContent: 'center',
+    bottom: 0,
+    left: 0,
+    top: 0,
+    right: 0,
     zIndex: -1
   }
 })
