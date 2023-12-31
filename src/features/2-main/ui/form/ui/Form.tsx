@@ -17,9 +17,9 @@ type Props = {
 export const Form = ({setList, list}: Props) => {
   const [value, setValue] = useState('');
   const [selectedIcon, setSelectedIcon] = useState<IconsType>();
-  const [showIcons, setShowIcons] = useState(false)
+  // const [showIcons, setShowIcons] = useState(false)
 
-  const clickHandle = () => {
+  const addTaskHandle = () => {
     if (value !== '' || selectedIcon !== undefined) {
       setList([{id: value + Date.now(), text: value, image: selectedIcon}, ...list]);
       setValue('');
@@ -46,7 +46,7 @@ export const Form = ({setList, list}: Props) => {
           }}>{selectedIcon ? '🖼️' + ' x' : ''}</Text>
         </View>
 
-        <Btn title={'ADD'} onPress={clickHandle}>
+        <Btn title={'ADD'} onPress={addTaskHandle}>
           <MaterialIcons name="post-add" size={24} color={COLORS.light100}/>
         </Btn>
 

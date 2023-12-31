@@ -4,11 +4,12 @@ import {Animated, Pressable, StyleSheet, Text} from "react-native";
 
 type Props = {
   title?: string,
-  onPress: (value?:any) => void,
+  onPress?: (value?:any) => void,
+  onLongPress?:()=>void
   children?: ReactNode,
   className?:any,
 }
-export const Btn = ({title, onPress, children, className}: Props) => {
+export const Btn = ({title, onPress, onLongPress, children, className}: Props) => {
 
   const fadeAnim = useRef(new Animated.Value(1)).current;
 
@@ -30,7 +31,7 @@ export const Btn = ({title, onPress, children, className}: Props) => {
 
 
   return (
-    <Pressable onPressIn={fadeIn} onPressOut={fadeOut} onPress={onPress}>
+    <Pressable onPressIn={fadeIn} onPressOut={fadeOut} onPress={onPress} onLongPress={onLongPress}>
       <Animated.View style={[styles.container, {opacity: fadeAnim}, className]}>
         {children}
         <Text style={ title ? [styles.text] : null}>{title}</Text>

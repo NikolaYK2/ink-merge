@@ -20,6 +20,7 @@ export const Main = () => {
   ])
 
 
+
   return (
     <View style={{flex:1}}>
 
@@ -28,7 +29,7 @@ export const Main = () => {
       <FlatList data={list}
                 keyExtractor={item => item.id}
                 renderItem={({item}) => (
-                  <List item={item}/>
+                  <List item={item} list={list} setList={setList}/>
                 )}/>
     </View>
   );

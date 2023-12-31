@@ -1,4 +1,4 @@
-import {Animated, Pressable, StyleSheet, View} from "react-native";
+import {Animated, StyleSheet, View} from "react-native";
 import {MaterialCommunityIcons} from "@expo/vector-icons";
 import React from "react";
 import {COLORS} from "@/assets/styles/styles";
