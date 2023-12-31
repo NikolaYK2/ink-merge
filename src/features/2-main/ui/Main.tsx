@@ -21,7 +21,7 @@ export const Main = () => {
 
 
   return (
-    <View>
+    <View style={{flex:1}}>
 
       <Form setList={setList} list={list}/>
 

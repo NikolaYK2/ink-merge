@@ -1,16 +1,18 @@
-import {Animated, StyleSheet, TouchableOpacity, View} from "react-native";
+import {Animated, Pressable, StyleSheet, View} from "react-native";
 import {MaterialCommunityIcons} from "@expo/vector-icons";
 import React from "react";
 import {COLORS} from "@/assets/styles/styles";
 import {useAnimation} from "@/features/2-main/ui/form/lib/useAnimations";
+import {Btn} from "@/common/components/Btn";
+
+const icons = ['food', 'car', 'home', 'silverware-clean'] as const;
+
+export type IconsType = typeof icons[number] | undefined;
 
 type Props = {
   setSelectedIcon: (name: IconsType) => void
 }
-export type IconsType = 'food' | 'car' | 'home' | undefined
-
 export const Icons = ({setSelectedIcon,}: Props) => {
-  const icons: IconsType[] = ['food', 'car', 'home'];
 
   const {animations, animate} = useAnimation(icons);
 
@@ -19,12 +21,14 @@ export const Icons = ({setSelectedIcon,}: Props) => {
       {icons.map((iconName, index) => {
         const isFirstChild = index === 0 ? styles.borderL : index === icons.length - 1 ? styles.borderR : styles.icons;
         return (
-          <TouchableOpacity style={[styles.icons, isFirstChild]} key={index} onPress={() => {
-            setSelectedIcon(iconName);
-            animate(index);
-          }}>
+          <Btn
+            className={[styles.icons, isFirstChild]} key={index}
+            onPress={() => {
+              setSelectedIcon(iconName);
+              animate(index)
+            }}
+          >
             <MaterialCommunityIcons name={iconName} size={24} color={COLORS.light100}/>
-
             <Animated.View style={[styles.anim, {
               transform: [
                 {translateY: animations[index].transformY},
@@ -35,7 +39,7 @@ export const Icons = ({setSelectedIcon,}: Props) => {
               <MaterialCommunityIcons name={iconName} size={24} color={COLORS.light100}/>
             </Animated.View>
 
-          </TouchableOpacity>
+          </Btn>
         );
       })}
     </View>
@@ -73,3 +77,20 @@ const styles = StyleSheet.create({
     zIndex: -1
   }
 })
+
+//   <Pressable style={[styles.icons, isFirstChild]} key={index} onPress={() => {
+//   setSelectedIcon(iconName);
+//   animate(index);
+// }}>
+// <MaterialCommunityIcons name={iconName} size={24} color={COLORS.light100}/>
+//
+// <Animated.View style={[styles.anim, {
+//   transform: [
+//     {translateY: animations[index].transformY},
+//     {translateX: animations[index].transformX}
+//   ],
+//   opacity: animations[index].opacity
+// }]}>
+//   <MaterialCommunityIcons name={iconName} size={24} color={COLORS.light100}/>
+// </Animated.View>
+// </Pressable>

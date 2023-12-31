@@ -5,8 +5,7 @@ import {COLORS, SAID} from "@/assets/styles/styles";
 import {FONT} from "@/assets/typography/typography";
 import {Btn} from "@/common/components/Btn";
 import {MaterialIcons} from "@expo/vector-icons";
-import {IconsForm} from "@/features/2-main/ui/form/ui/IconsForm";
-import {IconsType} from "@/features/2-main/ui/form/ui/Icons";
+import {Icons, IconsType} from "@/features/2-main/ui/form/ui/Icons";
 
 
 const bcImage = require('@/assets/img/bcApp/bc.jpg');
@@ -53,10 +52,7 @@ export const Form = ({setList, list}: Props) => {
 
       </View>
 
-      <IconsForm setSelectedIcon={setSelectedIcon}
-                 setShowIcons={setShowIcons}
-                 showIcons={showIcons}
-      />
+      <Icons setSelectedIcon={setSelectedIcon}/>
 
     </View>
   );

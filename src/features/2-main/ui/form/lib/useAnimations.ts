@@ -2,7 +2,7 @@ import {useRef} from 'react';
 import {Animated} from 'react-native';
 import {IconsType} from "@/features/2-main/ui/form/ui/Icons";
 
-export const useAnimation = (icons: IconsType[]) => {
+export const useAnimation = (icons: readonly IconsType[]) => {
 
   const animations = icons.map(() => ({
     transformY: useRef(new Animated.Value(0)).current,

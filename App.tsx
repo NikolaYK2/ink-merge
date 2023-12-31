@@ -9,13 +9,11 @@ import {HideKeyboard} from "@/common/components/HideKeyboard";
 export default function App() {
 
   return (
-    <HideKeyboard>
         <SafeAreaProvider style={styles.container}>
           <Header/>
           <Main/>
-          <StatusBar style="auto" />
+          {/*<StatusBar style="auto" />*/}
         </SafeAreaProvider>
-    </HideKeyboard>
   );
 }
 

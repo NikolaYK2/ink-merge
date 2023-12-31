@@ -22,7 +22,7 @@
     "typescript": "^5.1.3"
   },
   "devDependencies": {
-    "@babel/core": "^7.20.0",
+    "@babel/core": "^7.23.7",
     "@types/react-dom": "^18"
   },
   "private": true,
